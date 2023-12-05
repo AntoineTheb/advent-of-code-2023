@@ -23,7 +23,7 @@ formatter = {
 
 def main():
     # load input.txt into a list of strings
-    with open("input.txt", "r") as f:
+    with open("test.txt", "r") as f:
         data = f.read().splitlines()
 
     # for each string in the list, which are numbers and letters, find
@@ -32,6 +32,7 @@ def main():
     for i in range(len(data)):
         r = re.compile("\\d|one|two|three|four|five|six|seven|eight|nine")
         matches = re.findall(r, data[i], overlapped=True)
+        print(matches)
         code = int("{}{}".format(formatter[matches[0]], formatter[matches[-1]]))
         add += code
 
